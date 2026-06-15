@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Skap Converter</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div>
+      <p class="eyebrow">SkapTools</p>
+      <h1>Converter & Watermark Studio</h1>
+      <p>Konvertera bilder, video, ljud, PDF/EPS och batch-vattenstämpla bilder.</p>
+    </div>
+  </header>
+
+  <nav>
+    <button class="tab active" data-view="converter">Konverterare</button>
+    <button class="tab" data-view="watermark">Vattenstämpel</button>
+  </nav>
+
+  <main>
+    <section id="converter" class="panel active">
+      <h2>Filkonverterare</h2>
+      <p class="muted">Exempel: PNG → PDF/EPS, JPG → PNG/WebP, MP4 → MP3, MOV → MP4.</p>
+      <form id="convertForm">
+        <label class="drop">
+          <input type="file" name="files" multiple required />
+          <span>Släpp filer här eller klicka för att välja</span>
+        </label>
+        <div class="grid">
+          <label>Målformat
+            <select name="targetFormat" required>
+              <optgroup label="Bild">
+                <option>png</option><option>jpg</option><option>webp</option><option>avif</option><option>tiff</option>
+              </optgroup>
+              <optgroup label="Tryck/PDF">
+                <option>pdf</option><option>eps</option>
+              </optgroup>
+              <optgroup label="Video/Ljud">
+                <option>mp4</option><option>mov</option><option>webm</option><option>mp3</option><option>wav</option><option>m4a</option><option>ogg</option>
+              </optgroup>
+            </select>
+          </label>
+        </div>
+        <button type="submit">Konvertera</button>
+      </form>
+      <div id="convertResult" class="result"></div>
+    </section>
+
+    <section id="watermark" class="panel">
+      <h2>Batch-vattenstämpel</h2>
+      <p class="muted">Ladda upp flera bilder, välj text eller logga, och få allt som ZIP.</p>
+      <form id="watermarkForm">
+        <label class="drop">
+          <input type="file" name="images" accept="image/*" multiple required />
+          <span>Släpp bilder här</span>
+        </label>
+        <div class="grid two">
+          <label>Textstämpel
+            <input name="text" placeholder="Ex: Simons Dansmedia" />
+          </label>
+          <label>Logga istället/också
+            <input type="file" name="logo" accept="image/*" />
+          </label>
+          <label>Position
+            <select name="position">
+              <option value="bottom-right">Nere höger</option>
+              <option value="bottom-left">Nere vänster</option>
+              <option value="top-right">Uppe höger</option>
+              <option value="top-left">Uppe vänster</option>
+              <option value="center">Mitten</option>
+            </select>
+          </label>
+          <label>Exportformat
+            <select name="outputFormat"><option>jpg</option><option>png</option><option>webp</option></select>
+          </label>
+          <label>Marginal px
+            <input type="number" name="margin" value="40" min="0" />
+          </label>
+          <label>Synlighet 0-1
+            <input type="number" name="opacity" value="0.75" min="0.1" max="1" step="0.05" />
+          </label>
+        </div>
+        <button type="submit">Vattenstämpla & ladda ner ZIP</button>
+      </form>
+      <div id="watermarkResult" class="result"></div>
+    </section>
+  </main>
+
+<script src="app.js"></script>
+</body>
+</html>
