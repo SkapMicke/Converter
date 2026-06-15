@@ -4,23 +4,34 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Skap Converter</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <header>
     <div>
       <p class="eyebrow">SkapTools</p>
       <h1>Converter & Watermark Studio</h1>
-      <p>Konvertera bilder, video, ljud, PDF/EPS och batch-vattenstämpla bilder.</p>
+      <p>Frontend på Vercel. Tung konvertering körs via din backend på Render/Railway/VPS.</p>
     </div>
   </header>
 
-  <nav>
-    <button class="tab active" data-view="converter">Konverterare</button>
-    <button class="tab" data-view="watermark">Vattenstämpel</button>
-  </nav>
-
   <main>
+    <section class="panel setup">
+      <h2>Backend API</h2>
+      <p class="muted">Klistra in din backend-URL, t.ex. <b>https://din-app.onrender.com</b>. Sparas i webbläsaren.</p>
+      <div class="api-row">
+        <input id="apiBase" placeholder="https://din-backend-url.com" />
+        <button id="saveApi" type="button">Spara</button>
+        <button id="testApi" type="button">Testa</button>
+      </div>
+      <div id="status" class="status">Ingen backend testad ännu.</div>
+    </section>
+
+    <nav>
+      <button class="tab active" data-view="converter">Konverterare</button>
+      <button class="tab" data-view="watermark">Vattenstämpel</button>
+    </nav>
+
     <section id="converter" class="panel active">
       <h2>Filkonverterare</h2>
       <p class="muted">Exempel: PNG → PDF/EPS, JPG → PNG/WebP, MP4 → MP3, MOV → MP4.</p>
@@ -89,6 +100,7 @@
     </section>
   </main>
 
-<script src="app.js"></script>
+<script src="/config.js"></script>
+<script src="/app.js"></script>
 </body>
 </html>
