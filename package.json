@@ -1,13 +1,6 @@
 {
-  "name": "skap-converter-frontend",
-  "version": "2.0.0",
-  "private": true,
   "scripts": {
-    "dev": "npx serve public -l 3000",
-    "build": "echo Static frontend ready",
-    "start": "npx serve public -l 3000"
+    "build": "echo \"static site\""
   },
-  "dependencies": {
-    "serve": "^14.2.4"
-  }
+  "dependencies": {}
 }
